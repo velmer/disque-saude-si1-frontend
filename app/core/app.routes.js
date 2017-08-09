@@ -3,22 +3,22 @@ app.config(function ($routeProvider) {
         templateUrl: "view/search.html"
     }).when("/complaint/register", {
         templateUrl: "view/registerComplaint.html",
-        controller : "registerComplaintCtrl",
+        controller : "registerComplaintController",
     }).when("/searchcomplaint", {
         templateUrl : "view/search_complaint.html",
-        controller: "searchComplaintCtrl"
+        controller: "searchComplaintController"
     }).when("/search_health_unit", {
         templateUrl: "view/searchHealthUnit.html",
-        controller : "searchHealthUnitCtrl",
+        controller : "searchHealthUnitController",
     }).when("/searchaverage",{
         templateUrl : "view/search_average_per_patient.html",
-        controller: "searchAverangeCtrl"
+        controller: "searchAverageController"
     }).when("/createdcomplaint/:id", {
         templateUrl : "view/successPage.html",
-        controller : "messageCreatedComplaintCtrl"
+        controller : "messageCreatedComplaintController"
     }).when("/generalSituationComplaints", {
         templateUrl : "view/generalSituationComplaints.html",
-        controller : "generalSituationComplaintsCtrl"
+        controller : "generalSituationComplaintsController"
     }).otherwise({
         redirectTo: '/'
     });
