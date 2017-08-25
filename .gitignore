@@ -1,4 +1,8 @@
-!.gitkeep
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
 
 # Ignore Visual Studio Project #
 ################################
