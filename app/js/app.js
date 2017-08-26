@@ -1,1 +1,1 @@
-const app = angular.module("vs", ["ngRoute", "ngMessages","ngAnimate", "toastr"]);
+const app = angular.module('disque-saude', ['ui.router','ngMaterial', 'ngMessages', 'ngAnimate', 'toastr']);
