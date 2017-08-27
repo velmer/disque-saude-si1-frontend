@@ -1,9 +1,7 @@
 (function () {
     'use strict';
 
-    app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', function ($stateProvider, $urlRouterProvider, $locationProvider) {
-        $locationProvider.html5Mode(true);
-
+    app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
         const DIRETORIO_VIEW_PATH = '../view/';
 
         $stateProvider
@@ -13,19 +11,10 @@
             })
             .state('prefeitura', {
                 url: '/prefeitura',
-                template: "<ui-view/>",
-                controller: 'PrefeituraController as prefeituraCtrl'
-            })
-            .state('prefeitura.eficiencia', {
-                url: '/eficiencia',
-                templateUrl: DIRETORIO_VIEW_PATH +'prefeitura.eficiencia.html',
-                controller: 'PrefeituraController as prefeituraCtrl'
-            })
-            .state('prefeitura.situacao', {
-                url: '/situacao',
-                templateUrl: DIRETORIO_VIEW_PATH +'prefeitura.situacao.html',
+                templateUrl: DIRETORIO_VIEW_PATH +'prefeitura.info.html',
                 controller: 'PrefeituraController as prefeituraCtrl'
             });
+
 
         $urlRouterProvider.otherwise('/inicio');
     }]);
