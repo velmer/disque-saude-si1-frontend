@@ -1,0 +1,32 @@
+<md-content layout-padding flex>
+    <div layout-align="center center">
+        <h2 style="text-align: center">Informações sobre a Prefeitura</h2>
+
+        <div layout="row">
+            <p flex="10">Eficiência:</p>
+            <p>{{prefeituraCtrl.eficiencia}}</p>
+        </div>
+
+        <div>
+            <md-input-container class="md-block">
+                <div layout="row">
+                    <p flex="10">Situação: </p>
+                    <md-select name="situacao"
+                               aria-label="Situação"
+                               ng-disabled="!prefeituraCtrl.isEdicao"
+                               ng-model="prefeituraCtrl.prefeitura.situacao"
+                               required>
+                        <md-option value="normal">Normal</md-option>
+                        <md-option value="extra">Extra</md-option>
+                        <md-option value="caos">Caos</md-option>
+                    </md-select>
+                </div>
+            </md-input-container>
+
+            <div>
+                <md-button ng-click="prefeituraCtrl.toggleEdicao()" ng-if="!prefeituraCtrl.isEdicao">Editar</md-button>
+                <md-button ng-click="prefeituraCtrl.alterarSituacao()" ng-if="prefeituraCtrl.isEdicao">Salvar</md-button>
+            </div>
+        </div>
+    </div>
+</md-content>
