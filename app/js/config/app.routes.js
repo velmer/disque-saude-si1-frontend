@@ -46,6 +46,39 @@
                 url: '/buscar',
                 templateUrl: DIRETORIO_VIEW_PATH + 'buscar.queixa.html',
                 controller: 'QueixaBuscaController as queixaBuscaCtrl'
+            })
+            .state('unidadesaude', {
+                url: '/unidadesaude',
+                template: '<ui-view/>',
+                abstract: true
+            })
+            .state('unidadesaude.inserir', {
+                url: '/inserir',
+                templateUrl: DIRETORIO_VIEW_PATH + 'visualizar.unidade.saude.html',
+                controller: 'UnidadeSaudeController as unidadeVisCtrl',
+                resolve: {
+                    unidade: function () {
+                        return undefined;
+                    }
+                }
+            })
+            .state('unidadesaude.detalhes', {
+                url: '/detalhes/:id',
+                templateUrl: DIRETORIO_VIEW_PATH + 'visualizar.unidade.saude.html',
+                controller: 'UnidadeSaudeController as unidadeVisCtrl',
+                resolve: {
+                    unidade: function ($stateParams, UnidadeSaudeService) {
+                        return UnidadeSaudeService.getUnidadePorId($stateParams.id)
+                            .then(function (response) {
+                                return response.data;
+                            });
+                    }
+                }
+            })
+            .state('unidadesaude.buscar', {
+                url: '/buscar',
+                templateUrl: DIRETORIO_VIEW_PATH + 'buscar.unidade.saude.html',
+                controller: 'UnidadeSaudeBuscaController as unidadeBuscaCtrl'
             });
 
 

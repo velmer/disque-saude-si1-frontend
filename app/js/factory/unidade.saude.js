@@ -10,7 +10,7 @@
             this.endereco = info.endereco;
             this.especialidades = info.especialidades;
             this.quantidadeMedicos = info.quantidadeMedicos;
-            this.taxaDiariaAtendimentos = info.taxaDiariaAtendimentos;
+            this.taxaPacientesPorDia = info.taxaPacientesPorDia;
             this.numeroPacientesDia = info.numeroPacientesDia;
             this.mediaMedicoPorPaciente = info.mediaMedicoPorPaciente;
         };

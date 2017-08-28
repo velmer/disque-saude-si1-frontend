@@ -31,22 +31,17 @@
         </md-menu>
 
         <md-menu md-offset="0 59">
-            <md-button class="toolbar-menu-button" ng-click="$mdMenu.open($event)" aria-label="Menu da Vigilância Sanitária">
-                Unidade de Saúde
+            <md-button class="toolbar-menu-button" ng-click="$mdMenu.open($event)" aria-label="Menu das Unidades de Saúde">
+                Unidades de Saúde
             </md-button>
             <md-menu-content>
                 <md-menu-item>
-                    <md-button aria-label="Inserir unidade">
+                    <md-button ui-sref="unidadesaude.inserir" aria-label="Inserir unidade">
                         Inserir unidade
                     </md-button>
                 </md-menu-item>
                 <md-menu-item>
-                    <md-button aria-label="Consultar unidade">
-                        Consultar unidade
-                    </md-button>
-                </md-menu-item>
-                <md-menu-item>
-                    <md-button aria-label="Encontrar unidades">
+                    <md-button ui-sref="unidadesaude.buscar" aria-label="Encontrar unidades">
                         Encontrar unidades
                     </md-button>
                 </md-menu-item>
