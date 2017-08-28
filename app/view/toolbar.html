@@ -8,7 +8,10 @@
             <span>Início</span>
         </md-button>
 
-        <md-button class="toolbar-menu-button" ui-sref="prefeitura" aria-label="Menu da Prefeitura">
+        <md-button class="toolbar-menu-button"
+                   ng-if="usuarioEstaLogado()"
+                   ui-sref="prefeitura"
+                   aria-label="Menu da Prefeitura">
             Prefeitura
         </md-button>
 
@@ -35,8 +38,9 @@
                 Unidades de Saúde
             </md-button>
             <md-menu-content>
-                <md-menu-item>
-                    <md-button ui-sref="unidadesaude.inserir" aria-label="Inserir unidade">
+                <md-menu-item ng-if="usuarioEstaLogado()">
+                    <md-button ui-sref="unidadesaude.inserir"
+                               aria-label="Inserir unidade">
                         Inserir unidade
                     </md-button>
                 </md-menu-item>
@@ -51,10 +55,14 @@
         <span flex></span>
 
         <md-button class="toolbar-button"
+                   ng-click="sair()"
+                   ng-if="usuarioEstaLogado()"
                    aria-label="Sair">
             Sair
         </md-button>
         <md-button class="toolbar-button"
+                   ng-click="mostraDialogDeLogin()"
+                   ng-if="!usuarioEstaLogado()"
                    aria-label="Entrar">
             Entrar
         </md-button>
