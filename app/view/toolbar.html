@@ -1,0 +1,72 @@
+<md-toolbar>
+    <md-toolbar-row layout="row" layout-padding>
+
+        <md-button aria-label="Disque Saúde"
+                   class="toolbar-menu-button"
+                   ui-sref="inicio"
+                   layout-align="center center">
+            <span>Disque Saúde</span>
+        </md-button>
+
+        <md-button class="toolbar-menu-button" ui-sref="prefeitura" aria-label="Menu da Prefeitura">
+            Prefeitura
+        </md-button>
+
+        <md-menu md-offset="0 59">
+            <md-button class="toolbar-menu-button" ng-click="$mdMenu.open($event)" aria-label="Menu da Vigilância Sanitária">
+                Vigilância Sanitária
+            </md-button>
+            <md-menu-content>
+                <md-menu-item>
+                    <md-button aria-label="Registrar queixa">
+                        Registrar queixa
+                    </md-button>
+                </md-menu-item>
+                <md-menu-item>
+                    <md-button aria-label="Consultar queixa">
+                        Consultar queixa
+                    </md-button>
+                </md-menu-item>
+                <md-menu-item>
+                    <md-button aria-label="Editar queixa">
+                        Editar queixa
+                    </md-button>
+                </md-menu-item>
+            </md-menu-content>
+        </md-menu>
+
+        <md-menu md-offset="0 59">
+            <md-button class="toolbar-menu-button" ng-click="$mdMenu.open($event)" aria-label="Menu da Vigilância Sanitária">
+                Unidade de Saúde
+            </md-button>
+            <md-menu-content>
+                <md-menu-item>
+                    <md-button aria-label="Inserir unidade">
+                        Inserir unidade
+                    </md-button>
+                </md-menu-item>
+                <md-menu-item>
+                    <md-button aria-label="Consultar unidade">
+                        Consultar unidade
+                    </md-button>
+                </md-menu-item>
+                <md-menu-item>
+                    <md-button aria-label="Encontrar unidades">
+                        Encontrar unidades
+                    </md-button>
+                </md-menu-item>
+            </md-menu-content>
+        </md-menu>
+
+        <span flex></span>
+
+        <md-button class="toolbar-button"
+                   aria-label="Sair">
+            Sair
+        </md-button>
+        <md-button class="toolbar-button"
+                   aria-label="Entrar">
+            Entrar
+        </md-button>
+    </md-toolbar-row>
+</md-toolbar>
