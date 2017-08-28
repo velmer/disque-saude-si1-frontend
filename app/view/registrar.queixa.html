@@ -1,0 +1,123 @@
+<md-content layout-padding layout-fill layout-align="center center" layout="column">
+
+    <form layout-fill layout-align="center center" layout="column">
+        <div style="width: 40%">
+            <div layout="column">
+                <span class="md-body-2">Dados da queixa</span>
+
+                <div layout="row" layout-align="space-between center">
+                    <md-input-container>
+                        <md-select placeholder="Tipo"
+                                   ng-model="queixaCtrl.queixa.tipo"
+                                   ng-disabled="!queixaCtrl.isCriacao() || !queixaCtrl.isEdicao">
+                            <md-option value="alimento">Alimentos</md-option>
+                            <md-option value="animal">Animais</md-option>
+                            <md-option value="servico">Serviços</md-option>
+                        </md-select>
+                    </md-input-container>
+
+                    <md-input-container style="width: 100px"
+                                        ng-if="!queixaCtrl.isCriacao()">
+                        <md-select placeholder="Status"
+                                   ng-model="queixaCtrl.queixa.status"
+                                   ng-disabled="!queixaCtrl.isEdicao"></md-select>
+                    </md-input-container>
+                    <flex></flex>
+                </div>
+
+                <md-input-container style="margin-bottom: 0"
+                                    ng-if="!queixaCtrl.isCriacao()">
+                    <textarea placeholder="Comentário"
+                              ng-model="queixaCtrl.queixa.comentario"
+                              cols="45"
+                              rows="3"
+                              max-rows="3"></textarea>
+                </md-input-container>
+
+                <md-input-container style="margin-bottom: 0">
+                    <textarea placeholder="Descrição"
+                              ng-model="queixaCtrl.queixa.descricao"
+                              ng-disabled="!queixaCtrl.isCriacao() || !queixaCtrl.isEdicao"
+                              cols="45"
+                              rows="3"
+                              max-rows="3"></textarea>
+                </md-input-container>
+            </div>
+    
+            <div layout="row" layout-align="space-between center">
+                <div layout="column">
+                    <span class="md-body-2">Dados do Local</span>
+
+                    <md-input-container>
+                        <input placeholder="Rua"
+                               ng-model="queixaCtrl.queixa.endereco.rua"
+                               ng-disabled="!queixaCtrl.isCriacao() || !queixaCtrl.isEdicao"/>
+                    </md-input-container>
+
+                    <md-input-container>
+                        <input placeholder="Bairro"
+                               ng-model="queixaCtrl.queixa.endereco.bairro"
+                               ng-disabled="!queixaCtrl.isCriacao() || !queixaCtrl.isEdicao"/>
+                    </md-input-container>
+                </div>
+    
+                <div layout="column">
+                    <span class="md-body-2">Dados do solicitante</span>
+                    <md-input-container>
+                        <input placeholder="Nome"
+                                ng-model="queixaCtrl.queixa.solicitante.nome"
+                               ng-disabled="!queixaCtrl.isCriacao() || !queixaCtrl.isEdicao"/>
+                    </md-input-container>
+    
+                    <md-input-container>
+                        <input placeholder="Email"
+                               ng-model="queixaCtrl.queixa.solicitante.email"
+                               ng-disabled="!queixaCtrl.isCriacao() || !queixaCtrl.isEdicao"/>
+                    </md-input-container>
+                </div>
+            </div>
+
+            <div layout="column" ng-if="queixaCtrl.queixa.tipo === 'animal'">
+                <span class="md-body-2">Dados do Animal</span>
+
+                <md-input-container>
+                    <input placeholder="Tipo"
+                           ng-model="queixaCtrl.queixa.tipoAnimal"
+                           ng-disabled="!queixaCtrl.isCriacao() || !queixaCtrl.isEdicao"/>
+                </md-input-container>
+            </div>
+
+            <div layout="column" ng-if="queixaCtrl.queixa.tipo === 'alimento'">
+                <span class="md-body-2">Dados do Estabelecimento</span>
+
+                <md-input-container>
+                    <input placeholder="Nome"
+                           ng-model="queixaCtrl.queixa.estabelecimento"
+                           ng-disabled="!queixaCtrl.isCriacao() || !queixaCtrl.isEdicao"/>
+                </md-input-container>
+            </div>
+        </div>
+        
+
+        <div>
+            <md-button ng-click="queixaCtrl.habilitarEdicao()"
+                       ng-if="!queixaCtrl.isEdicao">
+                Editar
+            </md-button>
+
+            <md-button class="md-warn"
+                    ng-click="queixaCtrl.descartaForm()"
+                    ng-if="queixaCtrl.isEdicao">
+                Descartar
+            </md-button>
+
+            <md-button class="md-primary"
+                    ng-click="queixaCtrl.salvaQueixa()"
+                    ng-if="queixaCtrl.isEdicao">
+                Salvar
+            </md-button>
+        </div>
+
+    </form>
+
+</md-content>

@@ -1,16 +1,18 @@
-<md-content layout-padding flex>
-    <div layout-align="center center">
+<md-content layout-padding flex layout-fill>
+    <div layout="column" layout-align="center center">
         <h2 style="text-align: center">Informações sobre a Prefeitura</h2>
 
-        <div layout="row">
-            <p flex="10">Eficiência:</p>
-            <p>{{prefeituraCtrl.eficiencia}}</p>
+        <div layout="column">
+            <div layout="row" flex>
+                <p>Eficiência:</p>
+                <p>{{prefeituraCtrl.eficiencia}}</p>
+            </div>
         </div>
 
         <div>
-            <md-input-container class="md-block">
+            <md-input-container>
                 <div layout="row">
-                    <p flex="10">Situação: </p>
+                    <p>Situação: </p>
                     <md-select name="situacao"
                                aria-label="Situação"
                                ng-disabled="!prefeituraCtrl.isEdicao"

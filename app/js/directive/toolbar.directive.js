@@ -1,7 +1,7 @@
 (function () {
     'use strict';
 
-    app.directive('toolbar', function () {
+    app.directive('toolbar', function ($state) {
         function link(scope, element, attr) {
 
         }
