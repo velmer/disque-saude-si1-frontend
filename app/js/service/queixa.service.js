@@ -5,7 +5,10 @@
         const self = this;
 
         self.getQueixaPorId = function (id) {
-            return $http.get('http://localhost:5000/api/queixas/' + id);
+            return $http.get('http://localhost:5000/api/queixas/' + id)
+                .then(function (response) {
+                    return {data: new Queixa(response.data)};
+                });
         };
 
         self.salvaQueixa = function (queixa) {

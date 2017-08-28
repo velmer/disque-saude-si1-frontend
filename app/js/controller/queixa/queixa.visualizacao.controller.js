@@ -1,10 +1,10 @@
 (function () {
     'use strict';
 
-    app.controller('QueixaController', ['QueixaService', 'DialogService', 'toastr', function (QueixaService, DialogService, toastr) {
+    app.controller('QueixaVisualizacaoController', ['queixa', 'QueixaService', 'DialogService', 'toastr', function (queixa, QueixaService, DialogService, toastr) {
         const self = this;
 
-        self.queixa = {};
+        self.queixa = queixa || {};
         self.queixaBackup = angular.copy(self.queixa);
         self.isEdicao;
 

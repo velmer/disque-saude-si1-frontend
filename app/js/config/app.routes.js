@@ -17,12 +17,35 @@
             .state('queixa', {
                 url: '/queixa',
                 template: '<ui-view/>',
-                abstract: true,
-                controller: 'QueixaController as queixaCtrl'
+                abstract: true
             })
             .state('queixa.registrar', {
                 url: '/registrar',
-                templateUrl: DIRETORIO_VIEW_PATH + 'registrar.queixa.html'
+                templateUrl: DIRETORIO_VIEW_PATH + 'visualizar.queixa.html',
+                controller: 'QueixaVisualizacaoController as queixaVisCtrl',
+                resolve: {
+                    queixa: function () {
+                        return undefined;
+                    }
+                }
+            })
+            .state('queixa.detalhes', {
+                url: '/detalhes/:id',
+                templateUrl: DIRETORIO_VIEW_PATH + 'visualizar.queixa.html',
+                controller: 'QueixaVisualizacaoController as queixaVisCtrl',
+                resolve: {
+                    queixa: function ($stateParams, QueixaService) {
+                        return QueixaService.getQueixaPorId($stateParams.id)
+                            .then(function (response) {
+                                return response.data;
+                            });
+                    }
+                }
+            })
+            .state('queixa.buscar', {
+                url: '/buscar',
+                templateUrl: DIRETORIO_VIEW_PATH + 'buscar.queixa.html',
+                controller: 'QueixaBuscaController as queixaBuscaCtrl'
             });
 
 

@@ -1,0 +1,23 @@
+<md-content layout-padding layout-fill layout-align="center center" layout="column">
+
+    <h5 class="md-title">Encontre a sua queixa!</h5>
+
+    <form style="margin:0;" data-ng-submit="queixaBuscaCtrl.buscarQueixar(identificador)">
+        <div class="md-toolbar-tools search-bar" layout-align="center">
+
+            <md-input-container flex>
+                <input placeholder="Identificador da queixa" data-ng-model="identificador"/>
+            </md-input-container>
+
+            <md-button class="md-icon-button"
+                       ng-disabled="identificador === undefined ||
+                                    identificador.length === 0"
+                       layout-align="center"
+                       type="submit"
+                       aria-label="Pesquisar">
+                <md-icon layout layout-align="center">search</md-icon>
+            </md-button>
+        </div>
+    </form>
+
+</md-content>
