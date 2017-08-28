@@ -1,12 +1,16 @@
 (function () {
     'use strict';
 
-    app.controller('QueixaVisualizacaoController', ['queixa', 'QueixaService', 'DialogService', 'toastr', function (queixa, QueixaService, DialogService, toastr) {
+    app.controller('QueixaVisualizacaoController', ['queixa', 'AuthService', 'QueixaService', 'DialogService', 'toastr', function (queixa, AuthService, QueixaService, DialogService, toastr) {
         const self = this;
 
         self.queixa = queixa || {};
         self.queixaBackup = angular.copy(self.queixa);
         self.isEdicao;
+
+        self.usuarioEstaLogado = function () {
+            return AuthService.usuarioEstaLogado();
+        };
 
         self.salvaQueixa = function () {
             if (self.queixa.id)
