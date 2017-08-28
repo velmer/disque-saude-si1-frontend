@@ -1,46 +1,36 @@
 (function () {
     'use strict';
 
-    app.service('AuthService', ['$http', function ($http) {
+    app.service('AuthService', ['$http', 'store', function ($http, store) {
         const self = this;
 
-        var token;
-
         self.usuarioEstaLogado = function () {
-            return angular.isDefined(token);
+            return !!_getTokenDoCache();
         };
 
         self.entrar = function (usuario) {
             return $http.post('http://localhost:5000/api/login', usuario)
                 .then(function (response) {
-                    token = response.headers('Authorization');
-                    _salvaTokenEmCache();
+                    const token = response.headers('Authorization');
+                    _salvaTokenEmCache(token);
                 });
         };
 
         self.sair = function () {
-            token = undefined;
             _removeTokenDoCache();
         };
 
-        function _salvaTokenEmCache() {
-            localStorage.setItem('token', JSON.stringify(token));
+        function _salvaTokenEmCache(token) {
+            store.set('token', token);
         }
 
         function _removeTokenDoCache() {
-            localStorage.removeItem('token');
+            store.remove('token');
         }
 
         function _getTokenDoCache() {
-            const tokenEmCache = localStorage.getItem('token');
-
-            return tokenEmCache ? JSON.parse(tokenEmCache) : undefined;
+            return store.get('token');
         }
-
-        (function () {
-            token = _getTokenDoCache();
-        })();
-
 
     }]);
 
