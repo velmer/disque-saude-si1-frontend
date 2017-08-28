@@ -1,0 +1,39 @@
+<md-dialog aria-label="Login">
+
+    <form name="loginForm" data-ng-submit="loginCtrl.entrar()">
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>Bem-vindo ao Disque Saúde!</h2>
+            </div>
+        </md-toolbar>
+
+        <md-dialog-content>
+            <div class="md-dialog-content">
+                <md-input-container class="md-block">
+                    <label>Usuário</label>
+                    <input ng-model="loginCtrl.usuario.username" required>
+                </md-input-container>
+
+                <md-input-container class="md-block">
+                    <label>Senha</label>
+                    <input ng-model="loginCtrl.usuario.password" type="password" required>
+                </md-input-container>
+            </div>
+        </md-dialog-content>
+
+        <md-dialog-actions layout="row">
+            <span flex></span>
+            <md-button type="button"
+                       ng-click="loginCtrl.cancelar()"
+                       aria-label="Cancelar">
+                Cancelar
+            </md-button>
+            <md-button type="submit"
+                       class="md-primary"
+                       aria-label="Entrar">
+                Entrar
+            </md-button>
+        </md-dialog-actions>
+    </form>
+
+</md-dialog>
