@@ -11,7 +11,6 @@
                 toastr.success('Seja bem-vindo!');
                 _closeDialog();
             }, function (error) {
-                // TODO: Adicionar tratamento para erro 401 e avisar que foi erro de credencial
                 toastr.error('Algo de errado aconteceu, tente novamente', 'Login não efetuado');
             });
         };
