@@ -31,12 +31,7 @@
     }])
         .run(['$rootScope', '$state', 'AuthService', function ($rootScope, $state, AuthService) {
             $rootScope.$on('$stateChangeStart', function (event, toState) {
-                const estadosAutenticados = [
-                    'prefeitura',
-                    'unidadesaude.inserir'
-                ];
-
-                if (!AuthService.usuarioEstaLogado() && estadosAutenticados.indexOf(toState.name) !== -1) {
+                if (!AuthService.usuarioEstaLogado() && toState.autenticado) {
                     event.preventDefault();
                     $state.go('inicio');
                 }

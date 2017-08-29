@@ -12,7 +12,8 @@
             .state('prefeitura', {
                 url: '/prefeitura',
                 templateUrl: DIRETORIO_VIEW_PATH +'prefeitura.info.html',
-                controller: 'PrefeituraController as prefeituraCtrl'
+                controller: 'PrefeituraController as prefeituraCtrl',
+                autenticado: true
             })
             .state('queixa', {
                 url: '/queixa',
@@ -60,7 +61,8 @@
                     unidade: function () {
                         return undefined;
                     }
-                }
+                },
+                autenticado: true
             })
             .state('unidadesaude.detalhes', {
                 url: '/detalhes/:id',
