@@ -30,10 +30,8 @@
         }
 
         function _posSalvar(unidadeSalva) {
-            _transformaListaDeEspecialidadesParaStrings(unidadeSalva);
-
-            self.unidade = unidadeSalva;
-            self.isCriacao = false;
+            self.unidade = {};
+            self.isCriacao = true;
         }
 
         function _transformaListaDeEspecialidadesParaStrings(unidade) {

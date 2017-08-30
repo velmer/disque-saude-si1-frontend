@@ -1,7 +1,7 @@
 (function () {
     'use strict';
 
-    app.controller('LoginDialogController', function (AuthService, toastr, DialogService, $mdDialog) {
+    app.controller('LoginDialogController', function (AuthService, toastr, DialogService, $mdDialog, LOGIN_NAO_EFETUADO) {
         const self = this;
 
         this.usuario = {};
@@ -11,7 +11,7 @@
                 toastr.success('Seja bem-vindo!');
                 _closeDialog();
             }, function (error) {
-                toastr.error('Algo de errado aconteceu, tente novamente', 'Login não efetuado');
+                toastr.error(LOGIN_NAO_EFETUADO.MENSAGEM, LOGIN_NAO_EFETUADO.TITULO);
             });
         };
 

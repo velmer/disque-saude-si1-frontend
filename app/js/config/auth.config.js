@@ -5,7 +5,7 @@
         $provide.factory('redirecionamentoInterceptor', ['$q', '$injector', 'store', function ($q, $injector, store) {
             return {
                 responseError: function (rejection) {
-                    if (rejection.status === 401) {
+                    if (rejection.status === 401 || rejection.status === 500) {
                         store.remove('token');
                         $injector.get('$state').go('inicio');
                     }

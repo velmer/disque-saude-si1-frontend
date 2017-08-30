@@ -12,7 +12,6 @@
                                    ng-disabled="!queixaVisCtrl.isCriacao() || !queixaVisCtrl.isEdicao">
                             <md-option value="alimento">Alimentos</md-option>
                             <md-option value="animal">Animais</md-option>
-                            <md-option value="servico">Serviços</md-option>
                         </md-select>
                     </md-input-container>
 
@@ -91,8 +90,7 @@
                     </md-input-container>
                 </div>
 
-                <div layout="column" ng-if="queixaVisCtrl.queixa.tipo === 'alimento' ||
-                                            queixaVisCtrl.queixa.tipo === 'servico'">
+                <div layout="column" ng-if="queixaVisCtrl.queixa.tipo === 'alimento'">
                     <span class="md-body-2">Dados do Estabelecimento</span>
 
                     <md-input-container>
