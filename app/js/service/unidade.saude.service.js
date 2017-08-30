@@ -35,6 +35,13 @@
             });
         };
 
+        self.consultarMedia = function (id) {
+            return $http.get(UNIDADE_SAUDE_URL.BASE + '/' + id + '/media')
+                .then(function (response) {
+                    return {data: response.data.mediaMedicoPorPaciente};
+                });
+        };
+
         self.salvaUnidade = function (unidade) {
             const metodo = unidade.id ? 'PUT' : 'POST';
 

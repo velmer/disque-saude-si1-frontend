@@ -20,8 +20,8 @@
         })
         .constant('UNIDADE_SAUDE_URL',{
             BASE: UNIDADE_SAUDE_BASE_URL,
-            BAIRRO: UNIDADE_SAUDE_BASE_URL + '/eficiencia',
-            ESPECIALIDADE: UNIDADE_SAUDE_BASE_URL + '/situacao'
+            BAIRRO: UNIDADE_SAUDE_BASE_URL + '/bairro',
+            ESPECIALIDADE: UNIDADE_SAUDE_BASE_URL + '/especialidade'
         })
         .constant('QUEIXA_URL', {
             BASE: QUEIXA_BASE_URL

@@ -37,6 +37,8 @@
             QueixaService.salvaQueixa(self.queixa).then(function (response) {
                 _posSalvar(response.data);
                 toastr.success('Queixa atualizada com sucesso!');
+            }, function (error) {
+                DialogService.erro();
             });
         }
         
@@ -49,6 +51,8 @@
                     titulo = 'Queixa registrada com sucesso!';
 
                 DialogService.simples(mensagem, titulo);
+            }, function (error) {
+                DialogService.erro();
             });
         }
 

@@ -39,6 +39,8 @@
             UnidadeSaudeService.getPorEspecialidade(especialidade).then(function (response) {
                 self.unidades = response.data;
                 self.isResultadoPesquisa = true;
+            }, function () {
+                self.isResultadoPesquisa = true;
             });
         }
 
