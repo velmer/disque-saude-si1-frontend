@@ -1,7 +1,7 @@
 (function () {
     'use strict';
 
-    app.service('AuthService', ['$http', 'store', function ($http, store) {
+    app.service('AuthService', ['$http', 'store', 'LOGIN_URL', function ($http, store, LOGIN_URL) {
         const self = this;
 
         self.usuarioEstaLogado = function () {
@@ -9,7 +9,7 @@
         };
 
         self.entrar = function (usuario) {
-            return $http.post('http://localhost:5000/api/login', usuario)
+            return $http.post(LOGIN_URL, usuario)
                 .then(function (response) {
                     const token = response.headers('Authorization');
                     _salvaTokenEmCache(token);

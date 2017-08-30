@@ -50,7 +50,7 @@
                 <div flex="50" layout="column">
                     <md-input-container ng-if="unidadeVisCtrl.unidade.tipo === 'hospital'" flex="100">
                         <input placeholder="Número de pacientes por dia"
-                               ng-model="unidadeVisCtrl.unidade.numeroPacientesDia"
+                               ng-model="unidadeVisCtrl.unidade.taxaPacientesPorDia"
                                type="number"
                                step="0.01"
                                min="0"
@@ -67,6 +67,12 @@
                     </md-input-container>
                 </div>
             </div>
+        </div>
+
+        <div ng-if="!unidadeVisCtrl.isCriacao">
+            <md-button ng-click="unidadeVisCtrl.consultarMedia()">
+                Consultar média de médico por paciente
+            </md-button>
         </div>
 
         <div ng-if="unidadeVisCtrl.isCriacao">
